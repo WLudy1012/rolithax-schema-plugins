@@ -1,0 +1,4 @@
+[13:00:00] [Server thread/INFO]: [Chunky] 任务运行于世界 world。 处理了 1024 个区块 (25.00%), 预计距完成还有: 0:03:12, 速率: 16.0 区块/秒, 当前区块进度: 16, 16
+[13:00:01] [Server thread/INFO]: [Chunky] 任务暂停了 world。
+[13:00:02] [Server thread/INFO]: [Chunky] 任务持续了 world。
+[13:00:03] [Server thread/INFO]: [Chunky] 任务结束于 world。 处理了 4096 个区块 (100.00%), 总运行时长: 0:04:16

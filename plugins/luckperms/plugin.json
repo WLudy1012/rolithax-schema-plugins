@@ -1,0 +1,20 @@
+{
+  "id": "rolithax.luckperms",
+  "version": "1.0.0",
+  "sdkVersion": 2,
+  "server": "minecraft",
+  "engine": "yaml",
+  "name": "LuckPerms 权限管理",
+  "description": "查看插件和玩家信息、查询权限组并管理继承关系。",
+  "compatibility": {
+    "plugin": "LuckPerms",
+    "versions": [
+      "5.4.x",
+      "5.5.x"
+    ],
+    "locales": [
+      "en"
+    ],
+    "verification": "upstream-format-fixture"
+  }
+}

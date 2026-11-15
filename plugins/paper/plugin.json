@@ -1,0 +1,23 @@
+{
+  "id": "rolithax.paper-overview",
+  "version": "1.0.0",
+  "sdkVersion": 2,
+  "server": "paper",
+  "engine": "yaml",
+  "name": "Paper 运行概览",
+  "description": "启动状态、在线玩家与最近进出记录。",
+  "compatibility": {
+    "platforms": [
+      "Paper",
+      "Spigot"
+    ],
+    "versions": [
+      "1.20.x",
+      "1.21.x"
+    ],
+    "locales": [
+      "en"
+    ],
+    "verification": "synthetic-fixture"
+  }
+}

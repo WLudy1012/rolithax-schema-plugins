@@ -1,0 +1,4 @@
+[13:00:00] [Server thread/INFO]: [Chunky] Task running for world. Processed: 1024 chunks (25.00%), ETA: 0:03:12, Rate: 16.0 cps, Current: 16, 16
+[13:00:01] [Server thread/INFO]: [Chunky] Task paused for world.
+[13:00:02] [Server thread/INFO]: [Chunky] Task continuing for world.
+[13:00:03] [Server thread/INFO]: [Chunky] Task finished for world. Processed: 4096 chunks (100.00%), Total time: 0:04:16

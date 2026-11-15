@@ -1,0 +1,21 @@
+{
+  "id": "rolithax.chunky",
+  "version": "1.0.0",
+  "sdkVersion": 2,
+  "server": "minecraft",
+  "engine": "yaml",
+  "name": "Chunky 世界预生成",
+  "description": "查询中英文任务进度、暂停继续任务并配置生成范围。",
+  "compatibility": {
+    "plugin": "Chunky",
+    "versions": [
+      "1.4.x",
+      "1.5.x"
+    ],
+    "locales": [
+      "en",
+      "zh_CN"
+    ],
+    "verification": "upstream-format-fixture"
+  }
+}

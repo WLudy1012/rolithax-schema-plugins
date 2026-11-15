@@ -1,0 +1,46 @@
+initial:
+  version: "等待查询"
+  platform: "等待查询"
+  storage: "等待查询"
+  result: ""
+  target: ""
+  group: ""
+rules:
+  version:
+    prefix: "[LP] Running LuckPerms v"
+    suffix: " by Luck."
+    field: "version"
+    capture: "text"
+  platform:
+    prefix: "[LP] -  Platform: "
+    field: "platform"
+    capture: "text"
+  storage:
+    prefix: "[LP]      Type: "
+    field: "storage"
+    capture: "text"
+  responses:
+    prefix: "[LP] "
+    field: "result"
+    operation: "append"
+    capture: "text"
+commands:
+  info:
+    text: "lp info"
+  list-groups:
+    text: "lp listgroups"
+  user-info:
+    text: "lp user {target} info"
+    inputs: "target:player"
+  user-parents:
+    text: "lp user {target} parent info"
+    inputs: "target:player"
+  group-info:
+    text: "lp group {group} info"
+    inputs: "group:token"
+  add-parent:
+    text: "lp user {target} parent add {group}"
+    inputs: "target:player,group:token"
+  remove-parent:
+    text: "lp user {target} parent remove {group}"
+    inputs: "target:player,group:token"

@@ -1,0 +1,11 @@
+<panel title="Paper 运行概览">
+  <section id="overview" label="服务器状态" description="状态来自最近接收到的日志；断流后请重新查询。">
+    <badge id="lifecycle-status" label="运行状态" field="lifecycle" tone="primary"/>
+    <metric id="players-count" label="在线玩家" field="player-summary"/>
+  </section>
+  <section id="players" label="玩家">
+    <list id="online-list" label="最近一次查询" field="online-players"/>
+    <button id="refresh" label="刷新在线玩家" action="refresh-players" tone="primary"/>
+    <list id="activity-list" label="最近进出记录" field="activity"/>
+  </section>
+</panel>

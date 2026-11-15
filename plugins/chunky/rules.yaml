@@ -1,0 +1,113 @@
+initial:
+  state: "等待进度"
+  progress: "0"
+  detail: "点击查询进度，读取已有预生成任务。"
+  selection: ""
+  world: ""
+  radius: ""
+rules:
+  running:
+    prefix: "[Chunky] Task running for "
+    field: "state"
+    value: "正在预生成"
+  progress:
+    prefix: "[Chunky] Task running for "
+    field: "progress"
+    capture: "percent"
+  detail:
+    prefix: "[Chunky] Task running for "
+    field: "detail"
+    capture: "text"
+  finished:
+    prefix: "[Chunky] Task finished for "
+    field: "state"
+    value: "已完成"
+  finished-progress:
+    prefix: "[Chunky] Task finished for "
+    field: "progress"
+    capture: "percent"
+  finished-detail:
+    prefix: "[Chunky] Task finished for "
+    field: "detail"
+    capture: "text"
+  paused:
+    prefix: "[Chunky] Task paused for "
+    field: "state"
+    value: "已暂停"
+  stopped:
+    prefix: "[Chunky] Task stopped for "
+    field: "state"
+    value: "已暂停"
+  continued:
+    prefix: "[Chunky] Task continuing for "
+    field: "state"
+    value: "正在预生成"
+  empty:
+    prefix: "[Chunky] No tasks running."
+    field: "state"
+    value: "没有运行中的任务"
+  selected-world:
+    prefix: "[Chunky] World:"
+    field: "selection"
+    capture: "text"
+  zh-running:
+    prefix: "[Chunky] 任务运行于世界 "
+    field: "state"
+    value: "正在预生成"
+  zh-progress:
+    prefix: "[Chunky] 任务运行于世界 "
+    field: "progress"
+    capture: "percent"
+  zh-detail:
+    prefix: "[Chunky] 任务运行于世界 "
+    field: "detail"
+    capture: "text"
+  zh-finished:
+    prefix: "[Chunky] 任务结束于 "
+    field: "state"
+    value: "已完成"
+  zh-finished-progress:
+    prefix: "[Chunky] 任务结束于 "
+    field: "progress"
+    capture: "percent"
+  zh-finished-detail:
+    prefix: "[Chunky] 任务结束于 "
+    field: "detail"
+    capture: "text"
+  zh-paused:
+    prefix: "[Chunky] 任务暂停"
+    field: "state"
+    value: "已暂停"
+  zh-continued:
+    prefix: "[Chunky] 任务持续了 "
+    field: "state"
+    value: "正在预生成"
+  zh-empty:
+    prefix: "[Chunky] 没有在运行的任务。"
+    field: "state"
+    value: "没有运行中的任务"
+  zh-selected-world:
+    prefix: "[Chunky] 世界："
+    field: "selection"
+    capture: "text"
+commands:
+  progress:
+    text: "chunky progress"
+  selection:
+    text: "chunky selection"
+  pause:
+    text: "chunky pause {world}"
+    inputs: "world:token"
+  continue:
+    text: "chunky continue {world}"
+    inputs: "world:token"
+  set-world:
+    text: "chunky world {world}"
+    inputs: "world:token"
+  set-radius:
+    text: "chunky radius {radius}"
+    inputs: "radius:integer"
+  use-border:
+    text: "chunky worldborder"
+  start:
+    text: "chunky start"

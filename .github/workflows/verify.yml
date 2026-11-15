@@ -1,0 +1,54 @@
+name: Verify official Rolithax Schema plugins
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+concurrency:
+  group: schema-plugins-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  catalogue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Verify README, metadata and SHA-256
+        run: python tools/check_catalog.py
+  native:
+    needs: catalogue
+    if: ${{ vars.ROLITHAX_RUNTIME_REF != '' && vars.ROLITHAX_SDK_REF != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ vars.ROLITHAX_SDK_REPOSITORY || 'WLudy1012/rolithax-console-sdk' }}
+          ref: ${{ vars.ROLITHAX_SDK_REF }}
+          path: .rolithax-sdk
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: ${{ vars.ROLITHAX_RUNTIME_REPOSITORY || 'WLudy1012/RolithaxLauncher' }}
+          ref: ${{ vars.ROLITHAX_RUNTIME_REF }}
+          path: .rolithax-runtime
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Build native parser
+        run: |
+          cmake -S .rolithax-runtime/native/schema -B build/native -DCMAKE_BUILD_TYPE=Release
+          cmake --build build/native --parallel
+          echo "ROLITHAX_SCHEMA_CLI=$PWD/build/native/rolithax-schema" >> "$GITHUB_ENV"
+      - name: Replay fixtures and package
+        run: python tools/verify.py .rolithax-sdk
+      - uses: actions/upload-artifact@v7
+        with:
+          name: rolithax-schema-official-plugins
+          path: build/plugins/*.zip
+          if-no-files-found: error

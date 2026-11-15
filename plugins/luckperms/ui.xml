@@ -1,0 +1,29 @@
+<panel title="LuckPerms 权限管理">
+  <section id="overview" label="插件概况" description="概况字段匹配 LuckPerms 默认英文输出，其他语言仍可查看原始响应。">
+    <row id="metrics" label="运行信息">
+      <metric id="version-metric" label="LuckPerms 版本" field="version"/>
+      <badge id="platform-badge" label="运行平台" field="platform"/>
+      <text id="storage-text" label="存储类型" field="storage"/>
+    </row>
+    <row id="queries" label="全局查询">
+      <button id="info-button" label="刷新插件信息" action="info" tone="primary"/>
+      <button id="groups-button" label="查看权限组" action="list-groups"/>
+    </row>
+  </section>
+  <section id="member" label="玩家与权限组" description="写入操作需要实例授权并确认具体命令，查询不会自动修改权限。">
+    <field id="player-input" label="玩家名" field="target" placeholder="Alex"/>
+    <field id="group-input" label="权限组" field="group" placeholder="default"/>
+    <row id="member-queries" label="成员查询">
+      <button id="user-button" label="玩家信息" action="user-info"/>
+      <button id="parents-button" label="玩家继承组" action="user-parents"/>
+      <button id="group-button" label="权限组信息" action="group-info"/>
+    </row>
+    <row id="member-actions" label="调整继承关系">
+      <button id="add-button" label="添加继承组" action="add-parent"/>
+      <button id="remove-button" label="移除继承组" action="remove-parent" tone="danger"/>
+    </row>
+  </section>
+  <section id="response" label="最近响应">
+    <list id="result-list" label="LuckPerms 输出" field="result"/>
+  </section>
+</panel>

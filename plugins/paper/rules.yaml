@@ -1,0 +1,41 @@
+initial:
+  lifecycle: "等待服务端日志"
+  player-summary: "等待查询"
+  online-players: ""
+  activity: ""
+rules:
+  started:
+    prefix: "Starting minecraft server version "
+    field: "lifecycle"
+    value: "正在启动"
+  ready:
+    prefix: "Done ("
+    contains: "For help, type"
+    field: "lifecycle"
+    value: "启动完成"
+  stopping:
+    prefix: "Stopping server"
+    field: "lifecycle"
+    value: "正在停止"
+  players:
+    prefix: "There are "
+    field: "online-players"
+    capture: "online"
+  summary:
+    prefix: "There are "
+    contains: " players online:"
+    field: "player-summary"
+    capture: "online-summary"
+  join:
+    suffix: " joined the game"
+    field: "activity"
+    operation: "append"
+    capture: "player-event"
+  leave:
+    suffix: " left the game"
+    field: "activity"
+    operation: "append"
+    capture: "player-event"
+commands:
+  refresh-players:
+    text: "list"

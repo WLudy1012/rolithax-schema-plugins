@@ -1,0 +1,24 @@
+<panel title="Chunky 世界预生成">
+  <section id="task" label="当前任务" description="展示最近一条任务进度；多个世界同时运行时以最后返回的世界为准。">
+    <badge id="state-badge" label="任务状态" field="state" tone="primary"/>
+    <progress id="task-progress" label="已处理区块" field="progress" unit="%"/>
+    <text id="task-detail" label="进度详情" field="detail"/>
+    <button id="query-progress" label="查询全部任务进度" action="progress" tone="primary"/>
+  </section>
+  <section id="selection-section" label="生成范围" description="先选择世界和半径，再检查当前范围，最后手动启动。">
+    <text id="current-selection" label="当前世界" field="selection"/>
+    <field id="world-input" label="世界名称" field="world" placeholder="world"/>
+    <row id="world-actions" label="指定世界操作">
+      <button id="select-world" label="选择世界" action="set-world"/>
+      <button id="pause-task" label="暂停该世界任务" action="pause"/>
+      <button id="continue-task" label="继续该世界任务" action="continue"/>
+    </row>
+    <field id="radius-input" label="半径（方块）" field="radius" placeholder="1000"/>
+    <button id="select-radius" label="设置半径" action="set-radius"/>
+    <row id="selection-actions" label="范围操作">
+      <button id="border-button" label="使用世界边界" action="use-border"/>
+      <button id="selection-button" label="检查范围" action="selection"/>
+      <button id="start-button" label="开始预生成" action="start" tone="primary"/>
+    </row>
+  </section>
+</panel>
